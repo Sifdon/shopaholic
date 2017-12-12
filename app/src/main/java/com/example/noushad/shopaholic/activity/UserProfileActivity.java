@@ -1,0 +1,171 @@
+package com.example.noushad.shopaholic.activity;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.noushad.shopaholic.R;
+import com.example.noushad.shopaholic.model.UserInfo;
+import com.example.noushad.shopaholic.utils.ImageUtils;
+import com.example.noushad.shopaholic.utils.SharedPrefManager;
+import com.vstechlab.easyfonts.EasyFonts;
+
+import java.io.File;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class UserProfileActivity extends AppCompatActivity {
+
+    private CircleImageView mProfileImage;
+    private TextView mTvName;
+    private TextView mTvEmail;
+    private TextView mTvPhone;
+    private TextView mNameTv;
+    private FloatingActionButton reloadButton;
+    private File mFile;
+    private TextView mTvPassword;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_user_profile);
+        this.setTitle("Profile");
+        initializeViews();
+
+        displayData();
+//        setUpClickListeners();
+    }
+
+//    private void setUpClickListeners() {
+////        mTvName.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                showUpdateDialog("name");
+////            }
+////        });
+////        mTvEmail.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                showUpdateDialog("email");
+////            }
+////        });
+////        mTvPhone.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                showUpdateDialog("phone_no");
+////            }
+////        });
+////        mTvPassword.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                showUpdateDialog("password");
+////            }
+////        });
+////        mProfileImage.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                pickImage();
+////
+////            }
+//        });
+//
+//        reloadButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                reloadActivity();
+//            }
+//        });
+//    }
+
+//    private void reloadActivity() {
+//        finish();
+//        startActivity(getIntent());
+//    }
+
+    private static final int PICK_IMAGE = 1;
+
+    private void showUpdateDialog(final String key) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.update_info_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText newInfoEdit = (EditText) dialogView.findViewById(R.id.updateInfoEdit);
+        TextInputLayout layout = (TextInputLayout) dialogView.findViewById(R.id.updateTextInputLayout);
+
+        layout.setHint(key.toUpperCase());
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String value = newInfoEdit.getText().toString();
+//                if (!value.equals(""))
+            //        WebOperations.updateUserInformation(UserProfileActivity.this, key, value);
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog updateDialog = dialogBuilder.create();
+        updateDialog.show();
+        updateDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.colorAccent));
+        updateDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorAccent));
+
+    }
+
+    private void displayData() {
+        UserInfo user = SharedPrefManager.getInstance(this).getUser();
+
+        mTvName.setText(user.getName());
+        mTvName.setTypeface(EasyFonts.caviarDreams(this));
+        mTvEmail.setText(user.getEmail());
+        mTvEmail.setTypeface(EasyFonts.caviarDreams(this));
+        mTvPhone.setText(user.getPhone());
+        mTvPhone.setTypeface(EasyFonts.caviarDreams(this));
+        mNameTv.setText(user.getName());
+        mNameTv.setTypeface(EasyFonts.caviarDreamsBold(this));
+    }
+
+    private void initializeViews() {
+        mProfileImage = (CircleImageView) findViewById(R.id.user_profile_image);
+        mProfileImage.setImageResource(R.drawable.profile_image);
+        mTvName = (TextView) findViewById(R.id.tvName);
+        mTvEmail = (TextView) findViewById(R.id.tvEmail);
+        mTvPhone = (TextView) findViewById(R.id.tvPhone);
+        mTvPassword = (TextView) findViewById(R.id.tvPassword);
+        mNameTv = (TextView) findViewById(R.id.nameTextView);
+
+        reloadButton = (FloatingActionButton) findViewById(R.id.profileReloadButton);
+
+    }
+
+    public void pickImage() {
+        Intent chooserIntent = ImageUtils.getChooserIntent();
+        startActivityForResult(chooserIntent, PICK_IMAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            mFile = ImageUtils.getImageFile(this, data.getData(), mProfileImage);
+//            WebOperations.updateUserPhoto(UserProfileActivity.this, "PROFILE PICTURE", mFile);
+        }
+    }
+
+
+}
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fbutton_color_clouds"/>
+    <ProgressBar
+        android:id="@+id/main_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <include layout="@layout/error_layout"/>
+
+    <Button
+        android:id="@+id/post_discount_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/akronim"
+        android:padding="8dp"
+        android:text=" post offer"
+        android:textColor="@color/colorBackground"/>
+
+</FrameLayout>

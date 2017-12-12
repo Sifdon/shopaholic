@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.noushad.shopaholic.activity.UserProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_profile_image"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="4dp"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/aclonica"
+        android:padding="8dp"
+        android:text="Noushad"
+        android:textAllCaps="false"
+        android:textColor="@color/colorYellow"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_profile_image"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/user_profile_image"
+        app:layout_constraintRight_toRightOf="@+id/user_profile_image"
+        app:srcCompat="@drawable/ic_image_upload"
+        tools:ignore="ContentDescription"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/profileReloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_reload"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="48dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:buttonTint="@color/colorYellow"
+                    android:checked="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioButton"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:buttonTint="@color/colorYellow"
+                    android:checked="true"
+                    android:duplicateParentState="false"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:buttonTint="@color/colorYellow"
+                    android:checked="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioButton3"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:buttonTint="@color/colorYellow"
+                    android:checked="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioButton4"/>
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/poiret_one"
+                    android:padding="8dp"
+                    android:text="01763463287"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/radioButton3"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toRightOf="@+id/radioButton3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/radioButton3"/>
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/poiret_one"
+                    android:padding="8dp"
+                    android:text="Noushad Hasan"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/radioButton"
+                    app:layout_constraintLeft_toRightOf="@+id/radioButton"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/radioButton"/>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/poiret_one"
+                    android:padding="8dp"
+                    android:text="abcdnoushad@gmail.com"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/radioButton4"
+                    app:layout_constraintLeft_toRightOf="@+id/radioButton4"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/radioButton4"/>
+
+                <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/poiret_one"
+                    android:padding="8dp"
+                    android:text="@string/hide_password"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/radioButton5"
+                    app:layout_constraintLeft_toRightOf="@+id/radioButton5"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/radioButton5"/>
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

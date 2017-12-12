@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "26506476221",
+    "firebase_url": "https://shopaholic-bf8c0.firebaseio.com",
+    "project_id": "shopaholic-bf8c0",
+    "storage_bucket": "shopaholic-bf8c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26506476221:android:7a511d8abedad489",
+        "android_client_info": {
+          "package_name": "com.example.noushad.shopaholic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26506476221-b0pacafj9af0suu6db6kvlfc86l98ai8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.noushad.shopaholic",
+            "certificate_hash": "caebf07338133de5bce6a45b6975848ac184462b"
+          }
+        },
+        {
+          "client_id": "26506476221-dshtt397jv1uijppj85vak5jm5a55cpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFUvn3oNmdZCpWew3uEsHjM_xT_39oZqo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26506476221-dshtt397jv1uijppj85vak5jm5a55cpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

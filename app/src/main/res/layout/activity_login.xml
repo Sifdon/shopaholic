@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.noushad.shopaholic.activity.LoginActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:textColorHint="@color/fbutton_color_silver"
+        app:hintAnimationEnabled="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signIn">
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
+            android:shadowColor="@color/colorYellow"
+            android:textColor="@color/colorBackground"
+            android:textColorHighlight="@color/colorBackground"
+            android:textColorHint="@color/colorYellow"
+            android:textColorLink="@color/colorYellow"
+            android:textSize="14sp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/passwordTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColorHint="@color/fbutton_color_silver"
+        app:hintAnimationEnabled="false"
+        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
+        app:layout_constraintRight_toRightOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="PASSWORD"
+            android:inputType="textPassword"
+            android:shadowColor="@color/colorYellow"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBackground"
+            android:textColorHighlight="@color/colorBackground"
+            android:textColorHint="@color/colorYellow"
+            android:textColorLink="@color/colorYellow"
+            android:textSize="14sp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_bg"
+        android:backgroundTint="@color/colorYellow"
+        android:fontFamily="@font/akronim"
+        android:shadowColor="@color/colorAccent"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/passwordTextInputLayout"
+        app:layout_constraintRight_toRightOf="@+id/passwordTextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout"/>
+
+    <TextView
+        android:id="@+id/create_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="10sp"
+        android:fontFamily="@font/akronim"
+        android:gravity="center"
+        android:text="@string/create_new_account"
+        android:textAllCaps="false"
+        android:textColor="@color/colorYellow"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button"/>
+
+    <TextView
+        android:id="@+id/tv_signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/akronim"
+        android:text="SHOPAHOLIC"
+        android:textAllCaps="false"
+        android:textColor="@color/colorYellow"
+        android:textSize="36sp"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_forgetPass"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/akronim"
+        android:gravity="center"
+        android:text="Forget Password"
+        android:textColor="@color/colorYellow"
+        android:textSize="15sp"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_account"
+        tools:ignore="UnknownId"/>
+</android.support.constraint.ConstraintLayout>

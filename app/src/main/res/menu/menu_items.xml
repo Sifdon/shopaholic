@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/home"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/my_account"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/my_account"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/post_offer"
+        android:icon="@drawable/ic_create_black_24dp"
+        android:orderInCategory="100"
+        android:title="PostOffer"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/my_offers"
+        android:icon="@drawable/ic_assignment_ind_black_24dp"
+        android:orderInCategory="100"
+        android:title="My Offers"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_sign_in"
+        android:icon="@drawable/ic_create_black_24dp"
+        android:orderInCategory="105"
+        android:title="Sign In"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_logout"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        android:orderInCategory="106"
+        android:title="@string/log_out"
+        app:showAsAction="never"/>
+
+</menu>
