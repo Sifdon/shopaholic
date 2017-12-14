@@ -32,23 +32,26 @@ public class FirebaseService {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public void postOffer(Offer offer) {
-        mDatabase.child("offers").child("all_offers").child(offer.getTitle()+"_"+offer.getId()).setValue(offer);
-        mDatabase.child("offers").child(offer.getId()).child(offer.getTitle()+"_"+offer.getId()).setValue(offer);
+        mDatabase.child("offers").child("all_offers").child(offer.getTitle() + "_" + offer.getId()).setValue(offer);
+        mDatabase.child("offers").child(offer.getId()).child(offer.getTitle() + "_" + offer.getId()).setValue(offer);
     }
 
 
     public void createUser(final String email, String password, final String name, final String phone, final String location) {
 
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
+                    if (user != null) {
+                        user.sendEmailVerification();
+                    }
                     String id = user.getUid();
-                    UserInfo userInfo = new UserInfo(name,email,phone,id,location);
+                    UserInfo userInfo = new UserInfo(name, email, phone, id, location);
                     postUserInfo(userInfo);
-                    EventBus.getDefault().post(new RegisterEvent("Successfull"));
-                }else{
+                    EventBus.getDefault().post(new RegisterEvent("Please Check Your Email to Verify Account"));
+                } else {
                     EventBus.getDefault().post(new ErrorEvent("SignUp Failed"));
                 }
             }
@@ -75,8 +78,8 @@ public class FirebaseService {
         });
     }
 
-    public void removeOffer(Offer offer){
-        String offer_Id = offer.getTitle()+"_"+offer.getId();
+    public void removeOffer(Offer offer) {
+        String offer_Id = offer.getTitle() + "_" + offer.getId();
         mDatabase.child("offers").child("all_offers").child(offer_Id).removeValue();
         mDatabase.child("offers").child(offer.getId()).child(offer_Id).removeValue();
 

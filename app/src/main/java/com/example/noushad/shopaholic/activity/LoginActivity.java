@@ -155,11 +155,17 @@ public class LoginActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            SharedPrefManager.getInstance(LoginActivity.this).setUserId(user.getUid());
-                            Toast.makeText(LoginActivity.this, "Logged In.",
-                                    Toast.LENGTH_SHORT).show();
-                            new FirebaseService().getUserData(user.getUid());
+                            if(user.isEmailVerified()) {
+                                SharedPrefManager.getInstance(LoginActivity.this).setUserId(user.getUid());
+                                Toast.makeText(LoginActivity.this, "Logged In.",
+                                        Toast.LENGTH_SHORT).show();
+                                new FirebaseService().getUserData(user.getUid());
 
+                            }else{
+                                Toast.makeText(LoginActivity.this, "Please Verify Your Email",
+                                        Toast.LENGTH_SHORT).show();
+                                mAuth.signOut();
+                            }
 
                         } else {
 
@@ -174,13 +180,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private static final String TAG = "LoginActivity";
-
-    private void setLoggedInUserInformation() {
-
-        progressDialog.setMessage("Getting User Information...");
-        progressDialog.show();
-
-    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLoginEvent(SignInEvent event) {

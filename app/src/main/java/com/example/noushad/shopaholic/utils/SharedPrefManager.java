@@ -29,7 +29,6 @@ public class SharedPrefManager {
     private static final String KEY_USER_REFRESH_TOKEN = "keyuserrefreshtoken";
     private static final String KEY_USER_TOKEN_EXPIRE = "keyusertokenexpire";
     private static final String TAG_TOKEN = "tagtoken";
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     private SharedPrefManager(Context context) {
         sContext = context;
@@ -90,6 +89,8 @@ public class SharedPrefManager {
     }
 
     public boolean logout() {
+
+        FirebaseAuth.getInstance().signOut();
         SharedPreferences sharedPreferences = sContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();

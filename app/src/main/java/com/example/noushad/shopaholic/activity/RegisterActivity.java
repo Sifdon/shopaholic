@@ -1,6 +1,7 @@
 package com.example.noushad.shopaholic.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentManager;
@@ -98,7 +99,6 @@ public class RegisterActivity extends AppCompatActivity implements FilterOptions
     }
 
 
-
     private void getInformation() {
 
         String name = "";
@@ -113,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity implements FilterOptions
         location = mLocationText.getText().toString();
 
         if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() ||
-                location.isEmpty()||location.equals("Location")) {
+                location.isEmpty() || location.equals("Location")) {
 
             Toast.makeText(this, "No Fields can be empty!! ", Toast.LENGTH_SHORT).show();
         } else if (!password.equals(confirmPassword) && (!password.isEmpty() || !confirmPassword.isEmpty())) {
@@ -140,6 +140,8 @@ public class RegisterActivity extends AppCompatActivity implements FilterOptions
     public void onRegisterEvent(RegisterEvent event) {
         mProgressDialog.dismiss();
         Toast.makeText(this, event.getMessage(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
     }
 
